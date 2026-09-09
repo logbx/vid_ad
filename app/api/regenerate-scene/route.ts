@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // ============================================
 // API ROUTE: /api/regenerate-scene
 // Regenerate a single scene with AI refinement

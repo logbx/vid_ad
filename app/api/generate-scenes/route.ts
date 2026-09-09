@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // ============================================
 // API ROUTE: /api/generate-scenes
 // Generate scene images with AI-powered prompts

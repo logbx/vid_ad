@@ -137,6 +137,12 @@ export const adGenerationSchema = z.object({
   logoEnabled: z.boolean().default(false),
   logo: z.any().optional(), // ProcessedLogo from logoProcessor.ts
   logoSettings: z.any().optional(), // LogoSettings from logoProcessor.ts
+  generatedLogos: z.array(z.object({
+    url: z.string(),
+    prompt: z.string(),
+    variation: z.number(),
+  })).optional().default([]),
+  selectedLogoIndex: z.number().nullable().optional(),
 
   // Additional Options
   includeVoiceover: z.boolean().default(true),
