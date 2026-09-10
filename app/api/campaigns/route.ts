@@ -3,6 +3,8 @@ import { getUserCampaigns, getCampaignsByStatus } from '@/lib/firebase/campaigns
 import { cookies } from 'next/headers';
 import { adminAuth } from '@/lib/firebase/admin';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     // Verify authentication
