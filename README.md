@@ -1,5 +1,7 @@
 # Vid_Ad - AI-Powered Video Ad Generator
 
+[![CI](https://github.com/logbx/vid_ad/actions/workflows/ci.yml/badge.svg)](https://github.com/logbx/vid_ad/actions/workflows/ci.yml)
+
 An AI-first video advertising platform that generates professional, dynamic video advertisements from simple text descriptions using cutting-edge AI models.
 
 ## Overview
@@ -249,6 +251,23 @@ The remaining npm audit vulnerabilities are:
 - **Mitigation**: Requires upstream vendor updates (firebase-admin, @google-cloud packages)
 
 ## Testing
+
+### Automated Testing
+
+The project includes a comprehensive smoke test suite that runs in CI:
+
+```bash
+npm test  # Run all smoke tests (10 tests)
+```
+
+The smoke tests verify:
+- Build output integrity
+- Configuration validity
+- File structure completeness
+- Required dependencies
+- No API keys required
+
+**CI Pipeline**: GitHub Actions automatically runs the test suite on every push and pull request to the main branch.
 
 ### Manual Testing
 
