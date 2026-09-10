@@ -7,7 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  test-app:
+    name: Test App
     runs-on: ubuntu-latest
     
     steps:
@@ -28,3 +29,26 @@ jobs:
       
       - name: Run tests
         run: npm test
+  
+  test-functions:
+    name: Test Functions
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'functions/package-lock.json'
+      
+      - name: Install functions dependencies
+        working-directory: ./functions
+        run: npm ci
+      
+      - name: Build functions
+        working-directory: ./functions
+        run: npm run build
