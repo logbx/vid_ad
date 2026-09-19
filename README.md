@@ -252,12 +252,25 @@ The remaining npm audit vulnerabilities are:
 
 ## Testing
 
-### Automated Testing
+### Unit Tests
 
-The project includes a comprehensive smoke test suite that runs in CI:
+The project includes comprehensive unit tests for schema validation and helper functions:
 
 ```bash
-npm test  # Run all smoke tests (10 tests)
+npm run test:unit  # Run Jest unit tests (54 tests)
+```
+
+**Coverage**: Unit tests cover all Zod schemas and helper functions in `lib/schemas/adGenerationSchema.ts` without requiring any API keys or live services:
+- Schema validation (productName, productDescription, keywords, colors, durations, variations, frame rates)
+- Helper functions (isValidHexColor, formatKeywordsToString, getModelPricing, estimateGenerationCost)
+- Enum values (BrandTone, VideoOrientation, VideoResolution, VideoFrameRate, ReplicateModel, VideoWorkflow)
+
+### Smoke Tests
+
+The project includes a comprehensive smoke test suite that verifies file structure and configuration:
+
+```bash
+npm run test:smoke  # Run smoke tests (10 tests)
 ```
 
 The smoke tests verify:
@@ -267,7 +280,13 @@ The smoke tests verify:
 - Required dependencies
 - No API keys required
 
-**CI Pipeline**: GitHub Actions automatically runs the test suite on every push and pull request to the main branch.
+### Running All Tests
+
+```bash
+npm test  # Run unit tests + smoke tests
+```
+
+**CI Pipeline**: GitHub Actions automatically runs the full test suite (unit + smoke) on every push and pull request to the main branch.
 
 ### Manual Testing
 
